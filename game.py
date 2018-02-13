@@ -1,7 +1,12 @@
+# Game Template : Cole Brooks
+# MIT License
+# Utilizes classes
+
 import random
 
 class Game:
     def __init__(self):
+        """Initialize variables and game's core data."""
         self.xp = 50
         self.level = 0
         self.slain = 0
@@ -10,6 +15,7 @@ class Game:
         self.inventory = []
 
     def menu(self):
+        """Menu of the game."""
         menu = """
         1) Enter the shop
         2) Enter the armory
@@ -31,6 +37,7 @@ class Game:
             print("Must be an integer!")
             self.menu()
     def pvp(self):
+        """PVP function of the game, the actual objective."""
         enemies = random.randrange(1,20)
         for i in range(enemies):
             print("Total of", enemies, "enemies")
@@ -51,6 +58,7 @@ class Game:
             enemies -= 1
             print("-----" + "\n" + "Your Level: " + str(self.level) + "\n" + "Your XP: " + str(self.xp) + "\n" + "Total Slain: " + str(self.slain) + "\n" + "-----")
     def shop(self):
+        """Shop of the game, upgrade weapons etc-"""
         print("Welcome to the shop!")
         print("We have a variety of items for you to select!")
         inv = self.inventory
@@ -83,6 +91,7 @@ class Game:
                 print("Invalid item!")
 
     def armory(self):
+        """Equip weapons."""
         print("Your inventory: ", self.inventory)
         item = input("Select an item to equip: ")
         self.damage = self.items[item][1]
